@@ -48,9 +48,19 @@ public class opHandler
 		
 
 	}
+	private String addr(int i)
+	{
+		String out = Integer.toHexString(i);
+		while(out.length() <4)
+		{
+			out = '0'+ out;
+		}
+		return out;
+	}
 
 	public void generateInstructions( String filename)
-	{
+	{ 
+		int addrs = 0;
 		try
 		{
 			FileInputStream reader = new FileInputStream(filename);
@@ -64,12 +74,14 @@ public class opHandler
 					hex = '0' + hex;
 				
 				if (codes[data] != null)
-					System.out.println( hex + "  " +codes[data].name +
+					System.out.println(addr(addrs)+ "   "+ hex + "  "
+									   +codes[data].name +
 										"  ," +codes[data].size + 
 										"  (" + codes[data].addr + ')');
 										
 				else
-					System.out.println(hex  + "  -");
+					System.out.println(addr(addrs)+ "   "+hex  + "  -");
+				addrs++;
 			}
 		}
 		
