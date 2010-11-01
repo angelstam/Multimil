@@ -1,5 +1,5 @@
 package multimil;
-
+import java.io.*;
 /**
  * Main class for Multimil.
  * 
@@ -14,7 +14,8 @@ public class Main
 	public static void main(String[] args)
 	{
 		System.out.println("Multimil disassembler for SY6502.");
-		
+		opHandler handler = new opHandler("../codematrix");
+		handler.generateInstructions("../doc/multimil.bin");
 	}
 	
 }
