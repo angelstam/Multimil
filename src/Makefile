@@ -1,4 +1,5 @@
 all:
+	mkdir -p ../bin
 	javac -d ../bin multimil/*.java
 
 run:
