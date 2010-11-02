@@ -84,6 +84,17 @@ public class opHandler
 				if (codes[data] != null)
 				{
 					
+					switch (mode)
+					{
+					case 1:
+						System.out.print(addr(addrs)+ "   "+ hex + "  "
+										 +codes[data].name + "  ");
+						break;
+					case 2:
+						System.out.print(addr(addrs)+ "\t" +codes[data].name);
+						break;
+					}
+
 					String arg = "";
 				
 					if (codes[data].addr.equals("A"))
@@ -154,15 +165,12 @@ public class opHandler
 					switch (mode)
 					{
 					case 1:
-						System.out.print(addr(addrs)+ "   "+ hex + "  "
-										 +codes[data].name + "  ");
-						
+					
 						System.out.print(arg + "\t," +codes[data].size + 
 										 "  (" + codes[data].addr + ")\n");
 						break;
 					case 2:
-						System.out.print(addr(addrs)+ "\t" +codes[data].name
-										 + "\t" + arg + "\n");
+						System.out.print( "\t" + arg + "\n");
 						break;
 					}
 						
