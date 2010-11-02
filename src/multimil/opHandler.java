@@ -58,6 +58,15 @@ public class opHandler
 		return out;
 	}
 
+	private String hex(int i)
+	{
+				String hex =Integer.toHexString(i); 
+				if (hex.length() == 1)
+					hex = '0' + hex;
+
+				return hex;
+	}
+
 	public void generateInstructions( String filename)
 	{ 
 		int addrs = 0;
@@ -69,18 +78,24 @@ public class opHandler
 
 				int data = reader.read();
 			
-				String hex =Integer.toHexString(data); 
-				if (hex.length() == 1)
-					hex = '0' + hex;
-				
+				String hex = hex(data);
 				if (codes[data] != null)
-					System.out.println(addr(addrs)+ "   "+ hex + "  "
-									   +codes[data].name +
-										"  ," +codes[data].size + 
-										"  (" + codes[data].addr + ')');
-										
+				{
+					System.out.print(addr(addrs)+ "   "+ hex + "  "
+									   +codes[data].name + "  ");
+					for(int i = 1; i < codes[data].size && 
+							reader.available() > 0; i++)
+					{
+						System.out.print(hex(reader.read()));
+
+					}
+					System.out.print("\t," +codes[data].size + 
+								"  (" + codes[data].addr + ")\n");
+				}						
 				else
+				{
 					System.out.println(addr(addrs)+ "   "+hex  + "  -");
+				}
 				addrs++;
 			}
 		}
