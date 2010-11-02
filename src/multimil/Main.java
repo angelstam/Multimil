@@ -16,7 +16,7 @@ public class Main
 		System.out.println("Multimil disassembler for SY6502.");
 
 		opHandler handler;
-		if (args[0].equals("smooth"))
+		if (args.length > 0 && args[0].equals("smooth"))
 		    handler = new opHandler("../codematrix",2);
 		else
 		    handler = new opHandler("../codematrix",1);
