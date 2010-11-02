@@ -83,13 +83,16 @@ public class opHandler
 				{
 					System.out.print(addr(addrs)+ "   "+ hex + "  "
 									   +codes[data].name + "  ");
+
+					String arg = "";
+
 					for(int i = 1; i < codes[data].size && 
 							reader.available() > 0; i++)
 					{
-						System.out.print(hex(reader.read()));
-
+						arg = hex(reader.read()) + arg;
 					}
-					System.out.print("\t," +codes[data].size + 
+
+					System.out.print(arg + "\t," +codes[data].size + 
 								"  (" + codes[data].addr + ")\n");
 				}						
 				else
