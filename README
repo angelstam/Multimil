@@ -1,1 +1,5 @@
 Multimil: Disassembler for SY6502 Microprocessor.
+
+note:
+http://www.zophar.net/fileuploads/2/10532krzvs/6502.txt 
+contains breakdown of the opcodes in a C like pseudo-code, very useful for emulation
